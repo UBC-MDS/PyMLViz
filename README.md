@@ -9,8 +9,8 @@ Visualization package for ML models.
 > This package contains four functions to allow users to conveniently plot various visualizations as well as compare performance of different classifier models. The four functions will perform the following tasks: 
 > 1.  Compare the performance of various models 
 > 2.  Plot the confusion matrix based on the input data
-> 3.  Plot the ROC curve and calculate the AUC 
-> 4.  Plot the trained and test accuracy from a fitted model
+> 3.  Plot train/validation accuracies vs. parameter values
+> 4.  Plot the ROC curve and calculate the AUC 
 
 |Contributors|GitHub Handle|
 |------------|-------------|
@@ -30,7 +30,7 @@ pip install -i https://test.pypi.org/simple/ pymlviz
 |-------------|-----|------|-----------|
 |model_comparison_table| List of model, X_train, y_train, X_test, y_test, scoring option | Dataframe of model score| Takes in a list of models and the train test data then outputs a table comparing the scores for different models.|
 |plot_confusion_matrix | Model, X_train, y_train, X_test, y_test, predicted_y  | Confusion Matrix Plot, Dataframe of various scores (Recall, F1 and etc)| Takes in a trained model with X and y values to produce a confusion matrix visual. If predicted_y array is passed in, other evaluation scoring metrics such as Recall, and precision will also be produced.|
-|function_3_name| input |out| desc.|
+|plot_train_valid_acc| model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec |Train/validation accuracies vs. parameter values plot| Takes in a model name, train/validation data sets, a parameter name and a vector of parameter values and then plots train/validation accuracies vs. parameter values.|
 |fun4name|input |out| desc|
 
 ### Dependencies
