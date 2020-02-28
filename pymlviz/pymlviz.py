@@ -25,4 +25,8 @@ X_test : pd.DataFrame/np.ndarray
 
 y_test : np.ndarray
     Test labels.
+
+scoring : str
+    Scoring criteria for models,
+    by default uses sklearn's default.
 """
