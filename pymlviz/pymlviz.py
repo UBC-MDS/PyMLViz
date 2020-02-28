@@ -70,3 +70,40 @@ def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y =
     ------------
     display : matplotlib visual
     """
+
+
+def plot_train_valid_acc(model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec):
+    """
+    Takes in a model name, train/validation data sets, 
+    a parameter name and a vector of parameter values 
+    to try and then plots train/validation accuracies vs.
+    parameter values.
+
+    Parameters:
+    ------------
+    model_name : str 
+        the machine learning model name
+
+    X_train : pd.DataFrame/np.ndarray
+        Training dataset without labels.
+
+    y_train : np.ndarray
+        Training labels.
+
+    X_valid : pd.DataFrame/np.ndarray
+        Validation dataset without labels.
+
+    y_valid : np.ndarray
+        Test labels.
+        
+    param_name : str
+        the parameter name.
+
+    param_vec : list
+        the parameter values.
+
+    Returns:
+    ------------
+    display : matplotlib visual
+    """
+
