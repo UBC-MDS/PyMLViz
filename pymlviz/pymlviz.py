@@ -25,6 +25,10 @@ def model_comparison_table(models, X_train, y_train, X_test, y_test, scoring="de
 
     y_test : np.ndarray
         Test labels.
+        
+    scoring : str
+        Scoring criteria for models,
+        by default uses sklearn's default.
     """
 
 
