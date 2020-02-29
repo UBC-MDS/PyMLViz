@@ -40,7 +40,7 @@ For some of our functions, there are not existing packages that implement the ex
 The comparisons between new functions and existing functions are:
 
 | New functions | Existing Packages/Functions |
-|-------------|-----|------|-----------|
+|-------------|-----|
 |plot_confusion_matrix| [Sklearn's classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) | 
 
 ### Dependencies
