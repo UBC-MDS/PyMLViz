@@ -33,6 +33,16 @@ pip install -i https://test.pypi.org/simple/ pymlviz
 |plot_train_valid_acc| model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec |Train/validation accuracies vs. parameter values plot| Takes in a model name, train/validation data sets, a parameter name and a vector of parameter values and then plots train/validation accuracies vs. parameter values.|
 |plot_roc|model, X_valid, y_valid|ROC plot| Takes in a fitted model, the validation set(X_valid) and the validation set labels(y_valid),plot the ROC curve, the ROC curve also produces AUC score|
 
+### Alignment with Python Ecosystems
+
+For some of our functions, there are not existing packages that implement the exact same functionality in both Python. Most of these functions helps to show insights about machine learning models conveniently.
+
+The comparisons between new functions and existing functions are:
+
+| New functions | Existing Packages/Functions |
+|-------------|-----|------|-----------|
+|plot_confusion_matrix| [Sklearn's classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) | 
+
 ### Dependencies
 
 - TODO
