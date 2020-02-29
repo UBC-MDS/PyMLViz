@@ -35,7 +35,7 @@ pip install -i https://test.pypi.org/simple/ pymlviz
 
 ### Alignment with Python Ecosystems
 
-For some of our functions, there are not existing packages that implement the exact same functionality in both Python. Most of these functions helps to show insights about machine learning models conveniently.
+For some of our functions, there are not existing packages that implement the exact same functionality in Python. Most of these functions helps to show insights about machine learning models conveniently.
 
 The comparisons between new functions and existing functions are:
 
