@@ -63,3 +63,42 @@ def test_normal_function():
     
     # test reg output
     assert type(op_table_reg) == type(pd.DataFrame())
+
+def test_score_col():
+    """
+    The score can only be positive,
+    needs to check output of the 
+    score columns.
+    """
+    # output table from function for classification models
+    op_table_cf = model_comparison_table(X_train_cf, y_train_cf, X_test_cf, y_test_cf, 
+        svm_model=svm_cf, lr_model=lr_cf)
+
+    # output table from function for regression models
+    op_table_reg = model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg, 
+        svm_model=svm_reg, lr_model=lr_reg)
+
+    assert (op_table_cf["train_score"]>0).all() == True
+    assert (op_table_cf["test_score"]>0).all() == True
+
+    assert (op_table_reg["train_score"]>0).all() == True
+    assert (op_table_reg["test_score"]>0).all() == True
+
+def check_homogenous_models():
+    """
+    Check whether all models
+    are regression or 
+    classification models.
+    """
+    # all classification models, return dataframe.
+    assert model_comparison_table(X_train_cf, y_train_cf, X_test_cf, y_test_cf, 
+        svm_model=svm_cf, lr_model=lr_cf) == type(pd.DataFrame())
+
+    # all regression models, return dataframe.
+    assert model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg, 
+        svm_model=svm_reg, lr_model=lr_reg) == type(pd.DataFrame())
+
+    # function should not return a dataframe in the case regression and
+    # classification models are passed
+    assert model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg, 
+        svm_model=svm_cf, lr_model=lr_reg) != type(pd.DataFrame())    
