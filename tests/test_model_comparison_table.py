@@ -41,9 +41,25 @@ svm_cf = SVC().fit(X_train_cf, y_train_cf)
 
 # fit regression models
 lr_reg = LinearRegression().fit(X_train_reg, y_train_reg)
-svm_cf = LinearRegression().fit(X_train_reg, y_train_reg)
+svm_reg = LinearRegression().fit(X_train_reg, y_train_reg)
 
 # test normal functionality
 def test_normal_function():
-    
+    """
+    Test the output for regression
+    and classification models
+    are dataframes.
+    """
+    # output table from function for classification models
+    op_table_cf = model_comparison_table(X_train_cf, y_train_cf, X_test_cf, y_test_cf, 
+        svm_model=svm_cf, lr_model=lr_cf)
 
+    # output table from function for regression models
+    op_table_reg = model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg, 
+        svm_model=svm_reg, lr_model=lr_reg)
+
+    # test cf output
+    assert type(op_table_cf) == type(pd.DataFrame())
+    
+    # test reg output
+    assert type(op_table_reg) == type(pd.DataFrame())
