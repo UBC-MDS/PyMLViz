@@ -9,7 +9,7 @@ from sklearn.svm import SVC, SVR, LinearSVC
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 
-from pymlviz import plot_confusion_m
+from pymlviz.plot_confusion_m import plot_confusion_m
 
 
 cancer = datasets.load_breast_cancer()
