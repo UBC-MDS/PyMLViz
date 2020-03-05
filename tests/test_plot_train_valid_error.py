@@ -12,14 +12,15 @@ of parameter values to try and then plots train/validation
 errors vs. parameter values.
 """
 
+from pymlviz.plot_train_valid_error import plot_train_valid_error
 import pandas as pd
 import numpy as np
-import pytest
-import sys
+import altair as alt
 
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
+# use the iris data for unittest
 iris = load_iris()
 iris_df = pd.DataFrame(data = np.c_[iris['data'], iris['target']],
                        columns = iris['feature_names'] + ['target'])
@@ -31,6 +32,10 @@ X_train, X_valid, y_train, y_valid = train_test_split(X,
                                                       y.to_numpy().ravel(), 
                                                       test_size = 0.2,
                                                       random_state=123)
+p = alt.Chart(iris_df).encode(
+    alt.X('target:Q'),
+    alt.Y('target:Q')
+).mark_line()
 
 def test_output_type():
     """
@@ -39,37 +44,37 @@ def test_output_type():
     assert type(plot_train_valid_error('knn', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'n_neighbors', range(1, 50))) == alt.vegalite.v3.api.Chart, "The return type of knn is not correct."
+                                       'n_neighbors', range(1, 50))) == type(p), "The return type of knn is not correct."
 
     assert type(plot_train_valid_error('decision tree', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'max_depth', [5, 10, 15, 20])) == alt.vegalite.v3.api.Chart, "The return type of decision tree is not correct."
+                                       'max_depth', [5, 10, 15, 20])) == type(p), "The return type of decision tree is not correct."
 
     assert type(plot_train_valid_error('svc', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])) == alt.vegalite.v3.api.Chart, "The return type of svc is not correct."
+                                       'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])) == type(p), "The return type of svc is not correct."
 
     assert type(plot_train_valid_error('svc', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'gamma', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])) == alt.vegalite.v3.api.Chart, "The return type of svc is not correct."
+                                       'gamma', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])) == type(p), "The return type of svc is not correct."
 
     assert type(plot_train_valid_error('logistic regression', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10]))== alt.vegalite.v3.api.Chart, "The return type of logistic regression is not correct."
+                                       'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10]))== type(p), "The return type of logistic regression is not correct."
 
     assert type(plot_train_valid_error('random forests', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'max_depth', [5, 10, 15, 20])) == alt.vegalite.v3.api.Chart, "The return type of random forests is not correct."
+                                       'max_depth', [5, 10, 15, 20])) == type(p), "The return type of random forests is not correct."
 
     assert type(plot_train_valid_error('random forests', 
                                        X_train, y_train, 
                                        X_valid, y_valid, 
-                                       'n_estimators', [5, 10, 15, 20])) == alt.vegalite.v3.api.Chart, "The return type of random forests is not correct."
+                                       'n_estimators', [5, 10, 15, 20])) == type(p), "The return type of random forests is not correct."
 
 
 def test_input_type():
