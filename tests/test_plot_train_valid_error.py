@@ -211,7 +211,7 @@ def test_input_value():
         plot_train_valid_error('svc', 
                                X_train, y_train, 
                                X_valid, y_valid, 
-                               'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])
+                               'cv', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])
     except Exception as e:
         assert str(e) == "Sorry, only the hyperparameters, 'c' and 'gamma', are allowed for a 'svc' model."
         
