@@ -213,7 +213,7 @@ def test_input_value():
                                X_valid, y_valid, 
                                'c', [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10])
     except Exception as e:
-        assert str(e) == "Sorry, only the hyperparameters, 'C' and 'gamma', are allowed for a 'svc' model."
+        assert str(e) == "Sorry, only the hyperparameters, 'c' and 'gamma', are allowed for a 'svc' model."
         
     try:
         plot_train_valid_error('logistic regression', 
