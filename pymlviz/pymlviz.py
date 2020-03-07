@@ -61,7 +61,14 @@ def model_comparison_table(X_train, y_train, X_test, y_test, **kwargs):
     return df_results
 
 
-def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y = None, labels = None, title = None):
+def plot_confusion_m(model, X_test, y_test, predicted_y = None, labels = None, title = None):
+    from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import plot_confusion_matrix
+    import pandas as pd
+    import numpy as np
+    import matplotlib as plt
+    
+    
     """
     Takes in a trained model with X and y
     values to produce a confusion matrix 
@@ -73,12 +80,6 @@ def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y =
     ------------
     model : model instance 
         A trained classifier
-    
-    X_train : pd.DataFrame/np.ndarray
-        Training dataset without labels.
-
-    y_train : np.ndarray
-        Training labels.
 
     X_test : pd.DataFrame/np.ndarray
         Test dataset without labels.
@@ -99,6 +100,34 @@ def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y =
     ------------
     display : matplotlib visual
     """
+    
+
+    if not isinstance(X_test, pd.DataFrame) and not isinstance(X_test, np.ndarray):
+        raise Exception("Sorry, X_test should be a pd.DataFrame or np.ndarray.")
+
+    if not isinstance(y_test, np.ndarray):
+        raise Exception("Sorry, y_test should be a np.ndarray.")
+
+    if (isinstance(X_test, pd.DataFrame) and not np.issubdtype(X_test.to_numpy().dtype, np.number)) or \
+    (isinstance(X_test, np.ndarray) and  not np.issubdtype(X_test.dtype, np.number)):
+        raise Exception("Sorry, all elements in X_test should be numeric.")
+
+    if not np.issubdtype(y_test.dtype, np.number):
+        raise Exception("Sorry, all elements in y_valid should be numeric.")
+    
+    if y_test.shape[0] != X_test.shape[0]:
+        raise Exception("Sorry, X_test and y_test should have the same number of rows.")
+    
+
+    confusion_matrix = plot_confusion_matrix(model, X_test, y_test, 
+                                             display_labels = labels,
+                                             values_format = 'd')
+    if(title == None):
+        confusion_matrix.ax_.set_title('Confusion Matrix')
+    else:
+        confusion_matrix.ax_.set_title(title)
+        
+    return confusion_matrix.figure_
 
 
 def plot_train_valid_acc(model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec):

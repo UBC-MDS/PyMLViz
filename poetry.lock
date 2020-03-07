@@ -1,5 +1,7 @@
 [[package]]
+
 category = "main"
+
 description = "Atomic file writes."
 marker = "sys_platform == \"win32\""
 name = "atomicwrites"
@@ -8,15 +10,19 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "1.3.0"
 
 [[package]]
+
 category = "main"
+
 description = "Classes Without Boilerplate"
 name = "attrs"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "19.3.0"
 
+
 [[package]]
 category = "main"
+
 description = "Cross-platform colored terminal text."
 marker = "sys_platform == \"win32\""
 name = "colorama"
@@ -25,15 +31,19 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.4.3"
 
 [[package]]
+
 category = "main"
+
 description = "Code coverage measurement for Python"
 name = "coverage"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 version = "5.0.3"
 
+
 [[package]]
 category = "main"
+
 description = "Read metadata from Python packages"
 marker = "python_version < \"3.8\""
 name = "importlib-metadata"
@@ -43,6 +53,7 @@ version = "1.5.0"
 
 [package.dependencies]
 zipp = ">=0.5"
+
 
 [[package]]
 category = "main"
@@ -54,6 +65,7 @@ version = "0.14.1"
 
 [[package]]
 category = "main"
+
 description = "More routines for operating on iterables, beyond itertools"
 name = "more-itertools"
 optional = false
@@ -69,12 +81,16 @@ python-versions = ">=3.5"
 version = "1.18.1"
 
 [[package]]
+
 category = "main"
+
 description = "Core utilities for Python packages"
 name = "packaging"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
 version = "20.1"
+
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
@@ -93,8 +109,10 @@ numpy = ">=1.13.3"
 python-dateutil = ">=2.6.1"
 pytz = ">=2017.2"
 
+
 [[package]]
 category = "main"
+
 description = "plugin and hook calling mechanisms for python"
 name = "pluggy"
 optional = false
@@ -106,8 +124,10 @@ version = "0.13.1"
 python = "<3.8"
 version = ">=0.12"
 
+
 [[package]]
 category = "main"
+
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
 name = "py"
 optional = false
@@ -123,7 +143,9 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "2.4.6"
 
 [[package]]
+
 category = "main"
+
 description = "pytest: simple powerful testing with Python"
 name = "pytest"
 optional = false
@@ -144,8 +166,10 @@ wcwidth = "*"
 python = "<3.8"
 version = ">=0.12"
 
+
 [[package]]
 category = "main"
+
 description = "Pytest plugin for measuring coverage."
 name = "pytest-cov"
 optional = false
@@ -155,6 +179,7 @@ version = "2.8.1"
 [package.dependencies]
 coverage = ">=4.4"
 pytest = ">=3.6"
+
 
 [[package]]
 category = "main"
@@ -188,6 +213,7 @@ joblib = ">=0.11"
 numpy = ">=1.11.0"
 scipy = ">=0.17.0"
 
+
 [[package]]
 category = "main"
 description = "SciPy: Scientific Library for Python"
@@ -209,6 +235,7 @@ version = "1.14.0"
 
 [[package]]
 category = "main"
+
 description = "Measures number of Terminal column cells of wide-character codes"
 name = "wcwidth"
 optional = false
@@ -216,13 +243,16 @@ python-versions = "*"
 version = "0.1.8"
 
 [[package]]
+
 category = "main"
+
 description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
 name = "zipp"
 optional = false
 python-versions = ">=3.6"
 version = "3.1.0"
+
 
 [metadata]
 content-hash = "757cd6b50d2a512cda49f086b5e16bba50bea0b49f76f6fd6f71ec7300728aa4"
