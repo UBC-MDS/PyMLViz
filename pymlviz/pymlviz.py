@@ -1,0 +1,172 @@
+def model_comparison_table(X_train, y_train, X_test, y_test, **kwargs):
+    """
+    Takes in scikit learn ML models and
+    the train test data then outputs
+    a table comparing the scores for 
+    different models.
+
+    Parameters:
+    ------------
+    X_train : pd.DataFrame/np.ndarray
+        Training dataset without labels.
+
+    y_train : np.ndarray
+        Training labels.
+
+    X_test : pd.DataFrame/np.ndarray
+        Test dataset without labels.
+
+    y_test : np.ndarray
+        Test labels.
+        
+    **kwargs : 
+        Models assigned with meaningful
+        variable names.
+
+    Returns:
+    --------
+    pd.DataFrame
+        Dataframe object consisting of
+        models and comparison metrics.
+    
+    Example:
+    --------
+    model_comparison_table(X_train, y_train, X_test, y_test, 
+        svc_model=svc_trained, lr_model=lr_trained)
+    """
+    import numpy as np
+    import pandas as pd
+    
+    # create dataframe skeleton for model
+    df_results = pd.DataFrame({"model_name": [],
+                             "train_score": [],
+                             "test_score": []})
+    
+    # loop through models specified by user
+    for model in kwargs:
+        # compute values for results table
+        train_score = kwargs[model].score(X_train, y_train)
+        test_score = kwargs[model].score(X_test, y_test)
+        model_name = model
+        
+        # create temporary results table
+        df_res = pd.DataFrame({"model_name": [model_name],
+                             "train_score": [train_score],
+                             "test_score": [test_score]})
+        
+        # update results table
+        df_results = df_results.append(df_res, ignore_index=True)
+    
+    # return dataframe
+    return df_results
+
+
+def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y = None, labels = None, title = None):
+    """
+    Takes in a trained model with X and y
+    values to produce a confusion matrix 
+    visual. If predicted_y array is passed in,
+    other evaluation scoring metrics such as 
+    Recall, and precision will also be produced.
+
+    Parameters:    
+    ------------
+    model : model instance 
+        A trained classifier
+    
+    X_train : pd.DataFrame/np.ndarray
+        Training dataset without labels.
+
+    y_train : np.ndarray
+        Training labels.
+
+    X_test : pd.DataFrame/np.ndarray
+        Test dataset without labels.
+
+    y_test : np.ndarray
+        Test labels.
+
+    predicted_y : np.ndarray
+        Predicted target values
+    
+    labels : list, default=None
+        The labels of the confusion matrix
+
+    title : String, default=None
+        Title of the confusion matrix
+
+    Returns:
+    ------------
+    display : matplotlib visual
+    """
+
+
+def plot_train_valid_acc(model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec):
+    """
+    Takes in a model name, train/validation data sets, 
+    a parameter name and a vector of parameter values 
+    to try and then plots train/validation accuracies vs.
+    parameter values.
+
+    Parameters:
+    ------------
+    model_name : str 
+        the machine learning model name
+
+    X_train : pd.DataFrame/np.ndarray
+        Training dataset without labels.
+
+    y_train : np.ndarray
+        Training labels.
+
+    X_valid : pd.DataFrame/np.ndarray
+        Validation dataset without labels.
+
+    y_valid : np.ndarray
+        Test labels.
+        
+    param_name : str
+        the parameter name.
+
+    param_vec : list
+        the parameter values.
+
+    Returns:
+    ------------
+    display : matplotlib visual
+    """
+
+def plot_roc(model, X_valid, y_valid):
+    """
+    Takes in a fitted model, must be a fitted binary classifier, train/validation data sets, 
+    plot a ROC curve
+
+    Parameters:
+    ------------
+    model : str 
+        the fitted binary classifier
+
+    X_valid : pd.DataFrame/np.ndarray
+        Validation dataset without labels.
+
+    y_valid : np.ndarray
+        validation set with labels.
+
+    Returns:
+    ------------
+    display : matplotlib visual
+    """
+    
+    # probs = model.predict_proba(X_valid)
+    # preds = probs[:,1]
+    # fpr, tpr, threshold = metrics.roc_curve(y_valid, preds)
+    # roc_auc = metrics.auc(fpr, tpr)
+    # plt.title('ROC curve')
+    # plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
+    # plt.legend(loc = 'lower right')
+    # plt.plot([0, 1], [0, 1],'r--')
+    # plt.xlim([0, 1])
+    # plt.ylim([0, 1])
+    # plt.ylabel('True Positive Rate')
+    # plt.xlabel('False Positive Rate')
+    # plt.show()
