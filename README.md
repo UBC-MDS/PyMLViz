@@ -46,12 +46,42 @@ The comparisons between new functions and existing functions are:
 
 ### Dependencies
 
-- TODO
+- python 3.7.3 with packages:
+  - pytest-cov >= 2.8
+  - numpy >= 1.18
+  - pandas >= 1.0
+  - scikit-learn >= 0.22.2
+  - altair == 4.0.0
 
 ### Usage
 
-- TODO
+#### model_comparison_table()
 
+```
+from pymlviz.model_comparison_table import model_comparison_table()
+model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg,
+                       lr_reg_mod = lr_reg, svm_reg_mod = svm_reg)
+>>>     model_name  train_score  test_score
+    0   lr_reg_mod          0.89         0.76
+    1  svm_reg_mod          0.77         0.78
+```
+#### plot_roc(SVC(), X_valid_breast, y_valid_breast)
+
+```
+from pymlviz.plot_roc import plot_roc
+plot_roc(SVC(), X_valid, y_valid)
+>>> <plot_output>
+```
+
+#### plot_train_valid_error
+```
+from pymlviz.plot_train_valid_error import plot_train_valid_error
+plot_train_valid_error('random forests', 
+                       X_train, y_train, 
+                       X_valid, y_valid, 
+                       'n_estimators', [5, 10, 15, 20])
+>>> <plot_output>
+```
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://pymlviz.readthedocs.io/en/latest/>
 
