@@ -58,7 +58,7 @@ The comparisons between new functions and existing functions are:
 #### model_comparison_table()
 
 ```
-from pymlviz.model_comparison_table import model_comparison_table()
+from pymlviz.model_comparison_table import model_comparison_table
 model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg,
                        lr_reg_mod = lr_reg, svm_reg_mod = svm_reg)
 >>>     model_name  train_score  test_score
