@@ -48,7 +48,7 @@ def plot_roc(model, X_valid, y_valid):
     fpr, tpr, threshold = metrics.roc_curve(y_valid, preds)
     roc_auc = metrics.auc(fpr, tpr)
     
-    plt.title('ROC curve')
+    plt.title('ROC curve', fontsize=18)
     plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
     plt.legend(loc = 'lower right')
     plt.plot([0, 1], [0, 1],'r--')
