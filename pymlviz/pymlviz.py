@@ -91,8 +91,7 @@ def plot_confusion_m(model, X_test, y_test, predicted_y = None, labels = None, t
     
 
     confusion_matrix = plot_confusion_matrix(model, X_test, y_test, 
-                                             display_labels = labels, 
-                                             cmap=plt.cm.Reds, 
+                                             display_labels = labels,
                                              values_format = 'd')
     if(title == None):
         confusion_matrix.ax_.set_title('Confusion Matrix')
