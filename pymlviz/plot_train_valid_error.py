@@ -1,16 +1,22 @@
+"""
+Created on March 3, 2020
+
+@author: Fanli Zhou
+
+Implementation of plot_train_valid_error in the pymlviz package.
+"""
+
+import pandas as pd
+import altair as alt
+import numpy as np
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+
 def plot_train_valid_error(model_name, X_train, y_train, X_valid, y_valid, param_name, param_vec):
-    import pandas as pd
-    import altair as alt
-    import numpy as np
-
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.svm import SVC
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.linear_model import LogisticRegression
-
-
-    
     """
     Takes in a model name, train/validation data sets, 
     a parameter name and a vector of parameter values 
