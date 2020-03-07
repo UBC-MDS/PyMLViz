@@ -50,7 +50,7 @@ def plot_roc(model, X_valid, y_valid):
     
     plt.title('ROC curve', fontsize=18)
     plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
-    plt.legend(loc = 'lower right')
+    plt.legend(loc = 'lower right', fontsize=12)
     plt.plot([0, 1], [0, 1],'r--')
     plt.xlim([0, 1])
     plt.ylim([0, 1])
