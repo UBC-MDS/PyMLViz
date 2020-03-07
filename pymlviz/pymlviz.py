@@ -1,19 +1,12 @@
-def model_comparison_table(models, X_train, y_train, X_test, y_test, scoring="default"):
+def model_comparison_table(X_train, y_train, X_test, y_test, **kwargs):
     """
-    Takes in a list of models and
+    Takes in scikit learn ML models and
     the train test data then outputs
     a table comparing the scores for 
     different models.
 
     Parameters:
     ------------
-    models : list
-        A list containing different models
-        that have to be compared. The list
-        must contain models for same task,
-        ie. all classification models or
-        all regression models.
-
     X_train : pd.DataFrame/np.ndarray
         Training dataset without labels.
 
@@ -26,10 +19,46 @@ def model_comparison_table(models, X_train, y_train, X_test, y_test, scoring="de
     y_test : np.ndarray
         Test labels.
         
-    scoring : str
-        Scoring criteria for models,
-        by default uses sklearn's default.
+    **kwargs : 
+        Models assigned with meaningful
+        variable names.
+
+    Returns:
+    --------
+    pd.DataFrame
+        Dataframe object consisting of
+        models and comparison metrics.
+    
+    Example:
+    --------
+    model_comparison_table(X_train, y_train, X_test, y_test, 
+        svc_model=svc_trained, lr_model=lr_trained)
     """
+    import numpy as np
+    import pandas as pd
+    
+    # create dataframe skeleton for model
+    df_results = pd.DataFrame({"model_name": [],
+                             "train_score": [],
+                             "test_score": []})
+    
+    # loop through models specified by user
+    for model in kwargs:
+        # compute values for results table
+        train_score = kwargs[model].score(X_train, y_train)
+        test_score = kwargs[model].score(X_test, y_test)
+        model_name = model
+        
+        # create temporary results table
+        df_res = pd.DataFrame({"model_name": [model_name],
+                             "train_score": [train_score],
+                             "test_score": [test_score]})
+        
+        # update results table
+        df_results = df_results.append(df_res, ignore_index=True)
+    
+    # return dataframe
+    return df_results
 
 
 def plot_confusion_matrix(model, X_train, X_test, y_train, y_test, predicted_y = None, labels = None, title = None):
