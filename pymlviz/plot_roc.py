@@ -54,6 +54,6 @@ def plot_roc(model, X_valid, y_valid):
     plt.plot([0, 1], [0, 1],'r--')
     plt.xlim([0, 1])
     plt.ylim([0, 1])
-    plt.ylabel('True Positive Rate')
-    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate', fontsize=15)
+    plt.xlabel('False Positive Rate', fontsize=15)
     plt.show()
