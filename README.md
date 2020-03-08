@@ -89,7 +89,7 @@ plot_train_valid_error('random forests',
 ```
 from pymlviz.plot_confusion_m import plot_confusion_m
 plot_confusion_m(svm, X_test, y_test)
->>> <output>
+>>> <plot_output>
 ```
 
 ### Documentation
