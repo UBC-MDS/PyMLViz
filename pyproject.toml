@@ -19,6 +19,8 @@ pandas = "^1.0"
 scikit-learn = "^0.22.2"
 sphinxcontrib-napoleon = "^0.7"
 sphinx = "^2.4.4"
+codecov = "^2.0.16"
+flake8 = "^3.7.9"
 
 
 [build-system]
