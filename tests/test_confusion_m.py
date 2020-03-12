@@ -7,6 +7,9 @@ from sklearn.svm import SVC
 
 from pymlviz.plot_confusion_m import plot_confusion_m
 
+import matplotlib as mpl
+mpl.use('Agg')
+
 cancer = datasets.load_breast_cancer()
 X = pd.DataFrame(data=cancer['data'], columns=cancer['feature_names'])
 y = cancer['target']

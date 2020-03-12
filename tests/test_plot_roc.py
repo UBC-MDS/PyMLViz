@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_breast_cancer
 from pymlviz.plot_roc import plot_roc
 from sklearn.svm import SVC
-
+import matplotlib as mpl
+mpl.use('Agg')
 # Sample input
 breast_cancer = load_breast_cancer(return_X_y=True)
 X, y = breast_cancer
