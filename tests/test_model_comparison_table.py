@@ -85,11 +85,11 @@ def test_score_col():
 
     assert (op_table_cf["train_score"] >= 0).all(), \
         "train score should be >= 0"
-    assert (op_table_cf["test_score"] > 0).all(), \
+    assert (op_table_cf["test_score"] >= 0).all(), \
         "train score should be >= 0"
-    assert (op_table_reg["train_score"] > 0).all(), \
+    assert (op_table_reg["train_score"] >= 0).all(), \
         "train score should be >= 0"
-    assert (op_table_reg["test_score"] > 0).all(), \
+    assert (op_table_reg["test_score"] >= 0).all(), \
         "train score should be >= 0"
 
 
