@@ -83,14 +83,14 @@ def test_score_col():
                                           X_test_reg, y_test_reg,
                                           svm_model=svm_reg, lr_model=lr_reg)
 
-    assert (op_table_cf["train_score"] >= 0).all(), \
-        "train score should be >= 0"
-    assert (op_table_cf["test_score"] >= 0).all(), \
-        "train score should be >= 0"
-    assert (op_table_reg["train_score"] >= 0).all(), \
-        "train score should be >= 0"
-    assert (op_table_reg["test_score"] >= 0).all(), \
-        "train score should be >= 0"
+    assert op_table_cf["train_score"].min() >= 0, \
+        "Classification train score should be >= 0"
+    assert op_table_cf["test_score"].min() >= 0, \
+        "Classification test score should be >= 0"
+    assert op_table_reg["train_score"].min() >= 0, \
+        "Regression train score should be >= 0"
+    assert op_table_reg["test_score"].min() >= 0, \
+        "Regression test score should be >= 0"
 
 
 def check_homogenous_models():
