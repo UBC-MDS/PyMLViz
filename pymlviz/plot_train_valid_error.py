@@ -33,16 +33,16 @@ def plot_train_valid_error(model_name,
         'logistic regression', and 'random forests' are allowed.
 
     X_train : pd.DataFrame/np.ndarray
-        Training dataset without labels. Must be numeric.
+        training dataset without labels. Must be numeric.
 
     y_train : np.ndarray
-        Training labels. Must be numeric.
+        training labels. Must be numeric.
 
     X_valid : pd.DataFrame/np.ndarray
-        Validation dataset without labels. Must be numeric.
+        validation dataset without labels. Must be numeric.
 
     y_valid : np.ndarray
-        Validation labels. Must be numeric.
+        validation labels. Must be numeric.
 
     param_name : str
         the parameter name. Please choose this parameter based on the
@@ -61,6 +61,7 @@ def plot_train_valid_error(model_name,
         alt.vegalite.v3.api.Chart
     """
 
+    # check input data types
     if not isinstance(X_train, pd.DataFrame) and \
             not isinstance(X_train, np.ndarray):
         raise Exception("Sorry, X_train should be a "
@@ -102,6 +103,7 @@ def plot_train_valid_error(model_name,
         raise Exception("Sorry, all elements in para_vec "
                         "should be non-negative.")
 
+    # check input data shapes
     if y_train.shape[0] != X_train.shape[0]:
         raise Exception("Sorry, X_train and y_train should "
                         "have the same number of rows.")
