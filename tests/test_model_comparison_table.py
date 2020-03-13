@@ -40,8 +40,18 @@ svm_cf = SVC().fit(X_train_cf, y_train_cf)
 lr_reg = LinearRegression().fit(X_train_reg, y_train_reg)
 svm_reg = SVR().fit(X_train_reg, y_train_reg)
 
+# output table from function for classification models
+op_table_cf = model_comparison_table(X_train_cf, y_train_cf,
+                                     X_test_cf, y_test_cf,
+                                     svm_model=svm_cf, lr_model=lr_cf)
 
+# output table from function for regression models
+op_table_reg = model_comparison_table(X_train_reg, y_train_reg,
+                                      X_test_reg, y_test_reg,
+                                      svm_model=svm_reg, lr_model=lr_reg)
 # test normal functionality
+
+
 def test_normal_function():
     """
     Test the output for regression
@@ -52,11 +62,6 @@ def test_normal_function():
     op_table_cf = model_comparison_table(X_train_cf, y_train_cf,
                                          X_test_cf, y_test_cf,
                                          svm_model=svm_cf, lr_model=lr_cf)
-
-    # output table from function for regression models
-    op_table_reg = model_comparison_table(X_train_reg, y_train_reg,
-                                          X_test_reg, y_test_reg,
-                                          svm_model=svm_reg, lr_model=lr_reg)
 
     # test cf output
     assert isinstance(op_table_cf, pd.DataFrame), \
@@ -73,24 +78,11 @@ def test_score_col():
     needs to check output of the
     score columns.
     """
-    # output table from function for classification models
-    op_table_cf = model_comparison_table(X_train_cf, y_train_cf,
-                                         X_test_cf, y_test_cf,
-                                         svm_model=svm_cf, lr_model=lr_cf)
-
-    # output table from function for regression models
-    op_table_reg = model_comparison_table(X_train_reg, y_train_reg,
-                                          X_test_reg, y_test_reg,
-                                          svm_model=svm_reg, lr_model=lr_reg)
 
     assert op_table_cf["train_score"].min() >= 0, \
         "Classification train score should be >= 0"
     assert op_table_cf["test_score"].min() >= 0, \
         "Classification test score should be >= 0"
-    assert op_table_reg["train_score"].min() >= 0, \
-        "Regression train score should be >= 0"
-    assert op_table_reg["test_score"].min() >= 0, \
-        "Regression test score should be >= 0"
 
 
 def check_homogenous_models():
