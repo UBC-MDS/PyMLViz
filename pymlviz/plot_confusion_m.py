@@ -22,8 +22,6 @@ def plot_confusion_m(model, X_test, y_test, labels=None, title=None):
     y_test : np.ndarray
         Test labels.
 
-    predicted_y : np.ndarray
-        Predicted target values
     labels : list, default=None
         The labels of the confusion matrix
 
