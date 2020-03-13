@@ -87,10 +87,6 @@ def test_score_col():
         "Classification train score should be >= 0"
     assert op_table_cf["test_score"].min() >= 0, \
         "Classification test score should be >= 0"
-    assert op_table_reg["train_score"].min() >= 0, \
-        "Regression train score should be >= 0"
-    assert op_table_reg["test_score"].min() >= 0, \
-        "Regression test score should be >= 0"
 
 
 def check_homogenous_models():
