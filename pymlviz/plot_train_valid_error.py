@@ -59,6 +59,13 @@ def plot_train_valid_error(model_name,
     Returns:
     ------------
         alt.vegalite.v3.api.Chart
+
+    Example:
+    ------------
+        plot_train_valid_error('knn',
+                               np.array([1, 2, 3]), np.array([1, 2, 3]),
+                               np.array([1, 2, 3]), np.array([1, 2, 3]),
+                               'n_neighbors', [1, 2, 3])
     """
 
     # check input data types
