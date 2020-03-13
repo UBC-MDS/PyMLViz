@@ -16,7 +16,7 @@ Visualization package for ML models.
 |------------|-------------|
 |Anas Muhammad| [anasm-17](https://github.com/anasm-17)|
 |Tao Huang|[taohuang-ubc](https://github.com/taohuang-ubc)|
-|Fanli Zhou|[flizhou](https://github.com/mikeymice)|
+|Fanli Zhou|[flizhou](https://github.com/flizhou)|
 |Mike Chen|[miketianchen](https://github.com/miketianchen)|
 
 ### Installation:
