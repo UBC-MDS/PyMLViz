@@ -53,11 +53,6 @@ def test_normal_function():
                                          X_test_cf, y_test_cf,
                                          svm_model=svm_cf, lr_model=lr_cf)
 
-    # output table from function for regression models
-    op_table_reg = model_comparison_table(X_train_reg, y_train_reg,
-                                          X_test_reg, y_test_reg,
-                                          svm_model=svm_reg, lr_model=lr_reg)
-
     # test cf output
     assert isinstance(op_table_cf, pd.DataFrame), \
         "input table should be pd.DataFrame"
