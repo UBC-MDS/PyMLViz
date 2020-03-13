@@ -18,13 +18,13 @@ mpl.use('Agg')
 breast_cancer = load_breast_cancer(return_X_y=True)
 X, y = breast_cancer
 
-# Generate the train, validation set 
+# Generate the train, validation set
 X_train_breast = X[:400]
 y_train_breast = y[:400]
 X_valid_breast = X[400:569]
 y_valid_breast = y[400:569]
 
-# fit the model 
+# fit the model
 svc_no_proba = SVC()
 svc_no_proba.fit(X_train_breast, y_train_breast)
 svc_proba = SVC(probability=True)
@@ -35,33 +35,33 @@ def test_input_type():
     """
     Test for error if input is of a wrong type
     """
-    
+
     # test if the model is a fitted model
     try:
         plot_roc(SVC(), X_valid_breast, y_valid_breast)
     except Exception as e:
         assert str(e) == 'Sorry, please make sure model is a fitted model.'
-    
+
     # test if the model's `probability` argument is turned to True
     try:
         plot_roc(svc_no_proba, X_valid_breast, y_valid_breast)
     except Exception as e:
         assert str(e) == 'Sorry, please ' \
                          'make sure the model argument probability = True.'
-    
+
     # test if the X_valid is a panda dataframe or numpy array
     try:
         plot_roc(svc_proba, list(X_valid_breast), y_valid_breast)
     except Exception as e:
         assert str(e) == 'Sorry, ' \
                          'X_valid should be a pd.DataFrame or np.ndarray.'
-    
+
     # test if the y_valid is a panda dataframe or numpy array
     try:
         plot_roc(svc_proba, X_valid_breast, list(y_valid_breast))
     except Exception as e:
         assert str(e) == 'Sorry, y_valid should be a np.ndarray.'
-    
+
     # test if the x_valid and y_valid have some numer of rows
     try:
         plot_roc(svc_proba, X_valid_breast[:100], y_valid_breast)
