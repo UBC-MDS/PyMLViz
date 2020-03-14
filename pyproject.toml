@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pymlviz"
-version = "0.1.6"
+version = "0.1.7"
 description = "Visualization package for ML models."
 authors = ["Anas Muhammad <anas.m.017@gmail.com>"]
 license = "MIT"
