@@ -1,5 +1,8 @@
 [tool.poetry]
 name = "pymlviz"
+homepage = "https://github.com/UBC-MDS/pymlviz"
+repository = "https://github.com/UBC-MDS/pymlviz"
+documentation = 'https://pymlviz.readthedocs.io'
 version = "0.1.4"
 description = "Visualization package for ML models."
 authors = ["Anas Muhammad <anas.m.017@gmail.com>"]
