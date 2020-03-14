@@ -22,7 +22,7 @@ Visualization package for ML models.
 ### Installation:
 
 ```
-pip install -i https://test.pypi.org/simple/ pymlviz
+pip install -i https://test.pypi.org/simple/pymlviz
 ```
 
 ### Features
