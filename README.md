@@ -52,7 +52,7 @@ The comparisons between new functions and existing functions are:
   - matplotlib >= 3.1.3
   - python-semantic-release >= 4.10.0
   - scikit-learn >= 0.22.2
-  - altair >= .2.0
+  - altair >= 3.2.0
 
 ### Usage
 
