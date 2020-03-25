@@ -45,12 +45,12 @@ The comparisons between new functions and existing functions are:
 ### Dependencies
 
 - python 3.7.3 with packages:
-  - pandas >= 1.0.1
-  - numpy >= 1.18.1
-  - matplotlib >= 3.1.3
-  - python-semantic-release >= 4.10.0
-  - scikit-learn >= 0.22.2
-  - altair >= 3.2.0
+  - pandas == 1.0.1
+  - numpy == 1.18.1
+  - matplotlib == 3.1.3
+  - python-semantic-release == 4.10.0
+  - scikit-learn == 0.22.2
+  - altair == 3.2.0
 
 ### Usage
 
