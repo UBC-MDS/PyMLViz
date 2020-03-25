@@ -1,8 +1,6 @@
 ## pymlviz 
 
-![](https://github.com/UBC-MDS/pymlviz/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/pymlviz/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pymlviz) ![Release](https://github.com/UBC-MDS/pymlviz/workflows/Release/badge.svg)
-
-[![Documentation Status](https://readthedocs.org/projects/pymlviz/badge/?version=latest)](https://pymlviz.readthedocs.io/en/latest/?badge=latest)
+![](https://github.com/UBC-MDS/pymlviz/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/pymlviz/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pymlviz) ![Release](https://github.com/UBC-MDS/pymlviz/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/pymlviz/badge/?version=latest)](https://pymlviz.readthedocs.io/en/latest/?badge=latest)
 
 Visualization package for ML models. 
 
