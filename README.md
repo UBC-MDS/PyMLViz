@@ -47,11 +47,12 @@ The comparisons between new functions and existing functions are:
 ### Dependencies
 
 - python 3.7.3 with packages:
-  - pytest-cov >= 2.8
-  - numpy >= 1.18
-  - pandas >= 1.0
+  - pandas >= 1.0.1
+  - numpy >= 1.18.1
+  - matplotlib >= 3.1.3
+  - python-semantic-release >= 4.10.0
   - scikit-learn >= 0.22.2
-  - altair == 4.0.0
+  - altair >= 3.2.0
 
 ### Usage
 
@@ -77,10 +78,29 @@ plot_roc(SVC(), X_valid, y_valid)
 
 ```
 from pymlviz.plot_train_valid_error import plot_train_valid_error
-plot_train_valid_error('random forests', 
-                       X_train, y_train, 
-                       X_valid, y_valid, 
-                       'n_estimators', [5, 10, 15, 20])
+import pandas as pd
+import numpy as np
+import altair as alt
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# use the iris data for unittest
+iris = load_iris()
+iris_df = pd.DataFrame(data=np.c_[iris['data'], iris['target']],
+                       columns=iris['feature_names'] + ['target'])
+
+X = iris_df.drop(columns=['target'])
+y = iris_df[['target']]
+
+X_train, X_valid, y_train, y_valid = train_test_split(X,
+                                                      y.to_numpy().ravel(),
+                                                      test_size=0.2,
+                                                      random_state=123)
+plot_train_valid_error('knn',
+                       X_train, y_train,
+                       X_valid, y_valid,
+                       'n_neighbors', range(1, 50))
 >>> <plot_output>
 ```
 
