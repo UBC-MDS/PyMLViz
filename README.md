@@ -70,7 +70,7 @@ model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg,
 
 ```
 from pymlviz.plot_roc import plot_roc
-plot_roc(SVC(), X_valid, y_valid)
+plot_roc(fitted_binary_classifier_model, X_valid, y_valid)
 >>> <plot_output>
 ```
 
