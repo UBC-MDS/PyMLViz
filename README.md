@@ -66,11 +66,12 @@ model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg,
     0   lr_reg_mod          0.89         0.76
     1  svm_reg_mod          0.77         0.78
 ```
+
 #### plot_roc()
 
 ```
 from pymlviz.plot_roc import plot_roc
-plot_roc(SVC(), X_valid, y_valid)
+plot_roc(fitted_binary_classifier_model, X_valid, y_valid)
 >>> <plot_output>
 ```
 
