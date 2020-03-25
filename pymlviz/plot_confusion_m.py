@@ -34,9 +34,9 @@ def plot_confusion_m(model, X_test, y_test, labels=None, title=None):
 
     Example:
     ------------
-    svm = SVC()
-    svm.fit(X_train, y_train)
-    plot_confusion_m(svm, X_test, y_test)
+    >>> svm = SVC()
+    >>> svm.fit(X_train, y_train)
+    >>> plot_confusion_m(svm, X_test, y_test)
     """
 
     if not isinstance(X_test, pd.DataFrame) and not \

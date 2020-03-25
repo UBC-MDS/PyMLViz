@@ -38,38 +38,32 @@ def model_comparison_table(X_train, y_train, X_test, y_test, **kwargs):
         variable names.
 
     Returns:
-    --------
+    ------------
     pd.DataFrame
         Dataframe object consisting of
         models and comparison metrics.
 
     Example:
-    --------
-    from sklearn.datasets import make_classification
-    from pymlviz.model_comparison_table  import model_comparison_table
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.svm import SVC
-    from sklearn.model_selection import train_test_split
-    import pandas as pd
-
-    syn_data_cf = make_classification(n_samples=1000, n_classes=4,
-                                    n_informative=12)
-
-    tts_cf = train_test_split(pd.DataFrame(syn_data_cf[0]),
-                            syn_data_cf[1],
-                            test_size=0.33, random_state=42)
-
-    X_train, X_test, y_train, y_test = tts_cf
-
-    lr_cf = LogisticRegression().fit(X_train, y_train)
-    svm_cf = SVC().fit(X_train, y_train)
-
-    model_comparison_table(X_train, y_train, X_test, y_test,
-        lr_model=lr_cf, svm_model=svm_cf)
-
-    print(model_comparison_table(X_train, y_train,
-        X_test, y_test,
-        lr_model=lr_cf, svm_model=svm_cf))
+    ------------
+    >>> from sklearn.datasets import make_classification
+    >>> from pymlviz.model_comparison_table  import model_comparison_table
+    >>> from sklearn.linear_model import LogisticRegression
+    >>> from sklearn.svm import SVC
+    >>> from sklearn.model_selection import train_test_split
+    >>> import pandas as pd
+    >>> syn_data_cf = make_classification(n_samples=1000, n_classes=4,
+    >>>                                 n_informative=12)
+    >>> tts_cf = train_test_split(pd.DataFrame(syn_data_cf[0]),
+    >>>                         syn_data_cf[1],
+    >>>                         test_size=0.33, random_state=42)
+    >>> X_train, X_test, y_train, y_test = tts_cf
+    >>> lr_cf = LogisticRegression().fit(X_train, y_train)
+    >>> svm_cf = SVC().fit(X_train, y_train)
+    >>> model_comparison_table(X_train, y_train, X_test, y_test,
+    >>>     lr_model=lr_cf, svm_model=svm_cf)
+    >>> print(model_comparison_table(X_train, y_train,
+    >>>     X_test, y_test,
+    >>>     lr_model=lr_cf, svm_model=svm_cf))
     """
     try:
         # check if all regression or all classification
