@@ -28,7 +28,7 @@ def plot_roc(model, X_valid, y_valid):
 
     Example:
     ------------
-    plot_roc(svc_fitted, np.array(0,1,1,0,1), np.array(0,1,1,0,0))
+    >>> plot_roc(svc_fitted, np.array(0,1,1,0,1), np.array(0,1,1,0,0))
     """
 
     try:
