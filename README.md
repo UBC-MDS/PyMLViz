@@ -57,12 +57,29 @@ The comparisons between new functions and existing functions are:
 #### model_comparison_table()
 
 ```
-from pymlviz.model_comparison_table import model_comparison_table
-model_comparison_table(X_train_reg, y_train_reg, X_test_reg, y_test_reg,
-                       lr_reg_mod = lr_reg, svm_reg_mod = svm_reg)
+from sklearn.datasets import make_classification
+from pymlviz.model_comparison_table  import model_comparison_table
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+import pandas as pd
+syn_data_cf = make_classification(n_samples=1000, n_classes=4,
+                                n_informative=12)
+tts_cf = train_test_split(pd.DataFrame(syn_data_cf[0]),
+                        syn_data_cf[1],
+                        test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = tts_cf
+lr_cf = LogisticRegression().fit(X_train, y_train)
+svm_cf = SVC().fit(X_train, y_train)
+model_comparison_table(X_train, y_train, X_test, y_test,
+    lr_model=lr_cf, svm_model=svm_cf)
+print(model_comparison_table(X_train, y_train,
+    X_test, y_test,
+    lr_model=lr_cf, svm_model=svm_cf))
+    
 >>>     model_name  train_score  test_score
-    0   lr_reg_mod          0.89         0.76
-    1  svm_reg_mod          0.77         0.78
+      0   lr_model     0.689552    0.709091
+      1  svm_model     0.907463    0.836364
 ```
 
 #### plot_roc()
