@@ -74,9 +74,7 @@ def plot_train_valid_error(model_name,
     >>> X = iris_df.drop(columns=['target'])
     >>> y = iris_df[['target']]
     >>> X_train, X_valid, y_train, y_valid = train_test_split(X,
-    >>>                                                       y.to_numpy().ravel(),
-    >>>                                                       test_size=0.2,
-    >>>                                                       random_state=123)
+    >>> y.to_numpy().ravel(), test_size=0.2, random_state=123)
     >>> plot_train_valid_error('knn',
     >>>                        X_train, y_train,
     >>>                        X_valid, y_valid,
