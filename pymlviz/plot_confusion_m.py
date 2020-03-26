@@ -34,9 +34,22 @@ def plot_confusion_m(model, X_test, y_test, labels=None, title=None):
 
     Example:
     ------------
+    >>> import numpy as np
+    >>> import pandas as pd
+    >>> from sklearn.svm import SVC
+    >>> from sklearn.model_selection import train_test_split
+    >>> from pymlviz.plot_confusion_m import plot_confusion_m
+    >>> from sklearn.datasets import load_iris
+    >>> iris = load_iris()
+    >>> iris_df = pd.DataFrame(data=np.c_[iris['data'], iris['target']],
+    >>>               columns=iris['feature_names'] + ['target'])
+    >>> X = iris_df.drop(columns=['target'])
+    >>> y = iris_df[['target']]
+    >>> X_train, X_valid, y_train, y_valid = train_test_split(X,
+    >>> y.to_numpy().ravel(), test_size=0.2, random_state=123)
     >>> svm = SVC()
     >>> svm.fit(X_train, y_train)
-    >>> plot_confusion_m(svm, X_test, y_test)
+    >>> plot_confusion_m(svm, X_valid, y_valid)
     """
 
     if not isinstance(X_test, pd.DataFrame) and not \
