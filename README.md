@@ -86,7 +86,27 @@ print(model_comparison_table(X_train, y_train,
 
 ```
 from pymlviz.plot_roc import plot_roc
-plot_roc(fitted_binary_classifier_model, X_valid, y_valid)
+import numpy as np
+import pandas as pd
+from sklearn.svm import SVC
+from pymlviz.plot_roc import plot_roc
+from sklearn.datasets import load_breast_cancer
+
+# generate data from breast cancer dataset
+breast_cancer = load_breast_cancer(return_X_y=True)
+X, y = breast_cancer
+X_train_breast = X[:400]
+y_train_breast = y[:400]
+X_valid_breast = X[400:569]
+y_valid_breast = y[400:569]
+
+# fit model
+svc_proba = SVC(probability=True)
+svc_proba.fit(X_train_breast, y_train_breast)
+
+# plot roc curve
+plot_roc(svc_proba, X_valid_breast, y_valid_breast)
+
 >>> <plot_output>
 ```
 
