@@ -28,7 +28,22 @@ def plot_roc(model, X_valid, y_valid):
 
     Example:
     ------------
-    >>> plot_roc(svc_fitted, np.array(0,1,1,0,1), np.array(0,1,1,0,0))
+    >>> import numpy as np
+    >>> import pandas as pd
+    >>> from sklearn.svm import SVC
+    >>> from pymlviz.plot_roc import plot_roc
+    >>> from sklearn.datasets import load_breast_cancer
+    >>>
+    >>> breast_cancer = load_breast_cancer(return_X_y=True)
+    >>> X, y = breast_cancer
+    >>> X_train_breast = X[:400]
+    >>> y_train_breast = y[:400]
+    >>> X_valid_breast = X[400:569]
+    >>> y_valid_breast = y[400:569]
+    >>> svc_proba = SVC(probability=True)
+    >>> svc_proba.fit(X_train_breast, y_train_breast)
+    >>> plot_roc(svc_proba, X_valid_breast, y_valid_breast)
+
     """
 
     try:
